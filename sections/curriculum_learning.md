@@ -1,3 +1,6 @@
+<details>
+<summary><strong>Curriculum Learning in Legged Locomotion: Analysis of Techniques</strong></summary>
+
 # Curriculum Learning in Legged Locomotion: Analysis of Techniques
 
 This report synthesizes curriculum learning techniques identified in the provided literature on learning-based legged locomotion. It covers methods ranging from terrain adaptation to command scheduling and physics relaxation.
@@ -134,3 +137,5 @@ Zhuang et al. introduce a **Two-Stage Curriculum** involving **Soft Dynamics Con
 3.  **Exploration vs. Feasibility**:
     - Methods like **Zhuang** (Soft Dynamics) use curriculum to solve the _exploration_ problem (how to find the goal).
     - Methods like **Margolis** (Velocity Grid) and **Lee** (Terrain) use curriculum to discover the _feasibility_ boundary (what is physically possible).
+
+</details>

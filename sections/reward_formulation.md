@@ -1,3 +1,6 @@
+<details>
+<summary><strong>Reward Formulation in Learning-based Legged Locomotion</strong></summary>
+
 # Reward Formulation in Learning-based Legged Locomotion
 
 Reinforcement learning (RL) for legged locomotion relies heavily on the design of the reward function to shape the agent's behavior. While many works aim for a "universal" reward structure, there are distinct variations depending on whether the task is pure locomotion, high-speed running, or agile navigation (parkour).
@@ -72,3 +75,5 @@ Across all reviewed papers (Ha-2025 survey consistent), the following regulariza
 3.  **Action Smoothness**: $-||a_t - a_{t-1}||^2$ or second-order $-||a_t - 2a_{t-1} + a_{t-2}||^2$ (Ensures smooth control inputs).
 4.  **Orientation Penalty**: $-||g_{proj} - [0,0,-1]||^2$ (Keeps body upright).
 5.  **Collision Penalty**: Counts of collisions with non-foot links (knees, base).
+
+</details>
