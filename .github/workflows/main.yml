@@ -15,7 +15,7 @@ jobs:
       
       - name: Concat README
         run: |
-          cat curriculum_learning_report.md > README.md
+          cat sections/curriculum_learning.md > README.md
           
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
