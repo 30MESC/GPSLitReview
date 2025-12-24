@@ -22,8 +22,8 @@ Common components include:
 The following table summarizes the key reward terms used across prominent literature.
 
 | Paper               | Domain          | Primary Task Reward              | Key Regularization / Penalties                             | Specialized Terms                                                                            |
-| :------------------ | :-------------- | :------------------------------- | :--------------------------------------------------------- | :------------------------------------------------------------------------------------------- | --- | --- | ---- | ------------------------ |
-| **Heess (2017)**    | Rich Env        | Forward Velocity ($v_x$)         | Uprightness ($n_z$), Torques ($                            |                                                                                              | u   |     | ^2$) | Very sparse formulation. |
+| :------------------ | :-------------- | :------------------------------- | :--------------------------------------------------------- | :------------------------------------------------------------------------------------------- |
+| **Heess (2017)**    | Rich Env        | Forward Velocity ($v_x$)         | Uprightness ($n_z$), Torques ($u^2$)                       | Very sparse formulation.                                                                     |
 | **Lee (2020)**      | Rough Terrain   | Proj. Velocity ($v_{pr}$)        | Base Motion ($r_b$: roll/pitch/ortho vel), Torques         | **Foot Clearance** ($r_{fc}$): Reward for lifting feet > scan height.                        |
 | **Margolis (2022)** | High Speed      | Velocity Tracking (exp)          | Height ($h$), Orientation ($g_{xy}$), Torques              | **Foot Airtime**: Encourages flight phases.                                                  |
 | **Rudin (2022)**    | Fast Sim        | Velocity Tracking (exp)          | Vert. Vel ($v_z^2$), Ang. Vel ($\omega_{xy}^2$), Collision | **Action Smoothness**: ($2a_{t-1} - a_{t-2}$).                                               |
@@ -38,8 +38,8 @@ The following table summarizes the key reward terms used across prominent litera
 The standard for blind or perceptive locomotion is to track a commanded velocity vector $(v_x^*, v_y^*, \omega_z^*)$.
 
 - **Rudin et al. (2022)** use a kernel-based error:
-  $$ r*{lin} = \exp(-||v*{b,xy}^\* - v*{b,xy}||^2 / \sigma) $$
-    They heavily penalize non-commanded motion, particularly vertical velocity ($v_z^2$) and roll/pitch rates ($\omega*{xy}^2$), to ensure a flat, stable chassis.
+  $$ r*{lin} = \exp(-||v*{b,xy}^_ - v\_{b,xy}||^2 / \sigma) $$
+    They heavily penalize non-commanded motion, particularly vertical velocity ($v_z^2$) and roll/pitch rates ($\omega_{xy}^2$), to ensure a flat, stable chassis.
 
 - **Lee et al. (2020)** introduce a **Foot Clearance Reward** ($r_{fc}$) specifically for rough terrain. It rewards the agent when the foot in swing phase is higher than the terrain height measured by height-scan sensors ($H_{scan}$):
   $$ r*{fc} = \sum*{i \in I*{swing}} \mathbb{1}(r*{f,i} > \max(H\_{scan,i}) ) $$
