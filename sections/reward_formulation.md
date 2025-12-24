@@ -38,8 +38,8 @@ The following table summarizes the key reward terms used across prominent litera
 The standard for blind or perceptive locomotion is to track a commanded velocity vector $(v_x^*, v_y^*, \omega_z^*)$.
 
 - **Rudin et al. (2022)** use a kernel-based error:
-  $$ r*{lin} = \exp(-||v*{b,xy}^\* - v*{b,xy}||^2 / \sigma) $$
-    They heavily penalize non-commanded motion, particularly vertical velocity ($v_z^2$) and roll/pitch rates ($\omega*{xy}^2$), to ensure a flat, stable chassis.
+  $$ r*{lin} = \exp(-||v*{b,xy}^\ _ - v_{b,xy}||^2 \ \sigma) $$
+    They heavily penalize non-commanded motion, particularly vertical velocity ($v_z^2$) and roll/pitch rates ($\omega\*{xy}^2$), to ensure a flat, stable chassis.
 
 - **Lee et al. (2020)** introduce a **Foot Clearance Reward** ($r_{fc}$) specifically for rough terrain. It rewards the agent when the foot in swing phase is higher than the terrain height measured by height-scan sensors ($H_{scan}$):
   $$ r*{fc} = \sum*{i \in I*{swing}} \mathbb{1}(r*{f,i} > \max(H\_{scan,i}) ) $$
