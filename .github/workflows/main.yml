@@ -5,7 +5,12 @@ on:
     branches:
       - main
     paths:
-      - 'sections/**' # Only run if the partials change
+      - "sections/**" # Only run if the partials change
+
+# --- ADD THIS SECTION ---
+permissions:
+  contents: write
+# ------------------------
 
 permissions:
   contents: write
@@ -15,11 +20,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      
+
       - name: Concat README
         run: |
           cat sections/curriculum_learning.md > README.md
-          
+
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
