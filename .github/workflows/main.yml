@@ -1,0 +1,24 @@
+name: Update README
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'sections/**' # Only run if the partials change
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Concat README
+        run: |
+          cat curriculum_learning_report.md > README.md
+          
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Auto-update README
+          file_pattern: README.md
